@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chợ Tốt - Website Mua Bán, Rao Vặt Trực Tuyến Hàng Đầu...</title>
+	<link rel="icon"  href="D:\web\Web tu chon\images\tot.png">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!--jvascript slide-->
+	<script type="text/javascript" src="js/jssor.slider.min.js"></script>
+    <script>
+        jssor_slider1_init = function () {
+            var options = {
+                $SlideDuration: 800,                    //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+                $DragOrientation: 3,                    //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $Cols is greater than 1, or parking position is not 0)
+                $AutoPlay: 1,                           //[Optional] Auto play or not, to enable slideshow, this option must be set to greater than 0. Default value is 0. 0: no auto play, 1: continuously, 2: stop at last slide, 4: stop on click, 8: stop on user navigation (by arrow/bullet/thumbnail/drag/arrow key navigation)
+                $Idle: 1500,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+                $BulletNavigatorOptions: {              //[Optional] Options to specify and enable navigator or not
+                    $Class: $JssorBulletNavigator$,     //[Required] Class to create navigator instance
+                    $ChanceToShow: 2,                   //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $Steps: 1,                          //[Optional] Steps to go for each navigation request, default value is 1
+                    $Rows: 1,                           //[Optional] Specify lanes to arrange items, default value is 1
+                    $SpacingX: 10,                      //[Optional] Horizontal space between each item in pixel, default value is 0
+                    $SpacingY: 10,                      //[Optional] Vertical space between each item in pixel, default value is 0
+                    $Orientation: 1                     //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
+                },
+
+                $ArrowNavigatorOptions: {
+                    $Class: $JssorArrowNavigator$,      //[Requried] Class to create arrow navigator instance
+                    $ChanceToShow: 2                    //[Required] 0 Never, 1 Mouse Over, 2 Always
+                }
+            };
+            var jssor_slider1 = new $JssorSlider$('slider1_container', options);
+            //make sure to clear margin of the slider container element
+            jssor_slider1.$Elmt.style.margin = "";
+            //#region responsive code begin
+            //the following code is to place slider in the center of parent container with no scale
+            function ScaleSlider() {
+                var containerElement = jssor_slider1.$Elmt.parentNode;
+                var containerWidth = containerElement.clientWidth;
+                if (containerWidth) {
+                    var expectedWidth = Math.min(containerWidth, jssor_slider1.$OriginalWidth());
+                    //scale the slider to original height with no change
+                    jssor_slider1.$ScaleSize(expectedWidth, jssor_slider1.$OriginalHeight());
+                    jssor_slider1.$Elmt.style.left = ((containerWidth - expectedWidth) / 2) + "px";
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $Jssor$.$AddEvent(window, "load", ScaleSlider);
+            $Jssor$.$AddEvent(window, "resize", ScaleSlider);
+            $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+            //#endregion responsive code end
+        };
+    </script>
+    
+    <!-- make a div with 100% width, place jssor slider in the div -->
+</head>
+<body>	
+	<div id="wrapper_top">
+		<div class="container">
+			<div class="menu">
+				<div class="up">
+					<ul>
+						<li class="logo">
+							<a href="">
+								<img src="images/logo.png">
+							</a>
+						</li>
+						<li>
+							<a href="webtuchon.html">
+								<img src="images/icon1.png">
+								Trang chủ
+							</a>
+						</li>
+						<li>
+							<a href="login.html">
+								<img src="images/icon2.png">
+								Tôi bán
+							</a>
+						</li>
+						<li>
+							<a href="login.html">
+								<img src="images/icon3.png">
+								Chat
+							</a>
+						</li>
+						<li>
+							<a href="login.html">
+								<img src="images/icon4.png">
+								Thông báo
+							</a>
+						</li>
+						<li>
+							<a href="them.html">
+								<img src="images/icon5.png">
+								Thêm
+		
+							</a>
+						</li>
+					</ul>
+					<div class="dangnhap">
+						<ul>
+							<li><a href="login.html">
+								<img src="images/dangnhap.png">
+									Đăng Nhập
+								</a>
+							</li>
+							<li><a href="dangtin.html">
+								<img src="images/dangtin.png">
+									Đăng Tin
+								</a>
+							</li>	
+						</ul>
+					</div>
+				</div>
+				<div class="down">
+					<div class= search>
+						<input type="" name="" placeholder="Tìm kiếm trên Chợ Tốt">
+						<button>
+							<img src="images/search.png"> 
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="wrapper_slide">
+		<div class="container">
+			<div style="position:relative;top:0;left:0;width:100%;overflow:hidden;">
+		        <!--#region Jssor Slider Begin -->
+		        <div id="slider1_container" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 980px; height: 380px;">
+		            <!-- Loading Screen -->
+		            <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+		                <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="../svg/loading/static-svg/spin.svg" />
+		            </div>
+		            <!-- Slides Container -->
+		            <div data-u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 980px;  height: 380px; overflow: hidden;">
+		                <div>
+		                    <img data-u="image" src="images/slide/011.jpg" width="100%" />
+		                </div>
+		                <div>
+		                    <img data-u="image" src="images/slide/002.jpg" />
+		                </div>
+		                <div>
+		                    <img data-u="image" src="images/slide/003.jpg" />
+		                </div>
+		                <div>
+		                    <img data-u="image" src="images/slide/004.jpg" />
+		                </div>
+		                <div>
+		                    <img data-u="image" src="images/slide/005.jpg" />
+		                </div>
+		                <div>
+		                    <img data-u="image" src="images/slide/006.jpg" />
+		                </div>
+		            </div> 
+		            <!--#region Bullet Navigator Skin Begin -->
+		            <!-- Help: https://www.jssor.com/development/slider-with-bullet-navigator.html -->
+		            <style>
+		                .jssorb051 .i {position:absolute;cursor:pointer;}
+		                .jssorb051 .i .b {fill:#fff;fill-opacity:0.5;stroke:#000;stroke-width:400;stroke-miterlimit:10;stroke-opacity:0.5;}
+		                .jssorb051 .i:hover .b {fill-opacity:.7;}
+		                .jssorb051 .iav .b {fill-opacity: 1;}
+		                .jssorb051 .i.idn {opacity:.3;}
+		            </style>
+		            <div data-u="navigator" class="jssorb051" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
+		                <div data-u="prototype" class="i" style="width:16px;height:16px;">
+		                    <svg viewBox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+		                        <circle class="b" cx="8000" cy="8000" r="5800"></circle>
+		                    </svg>
+		                </div>
+		            </div>
+		            <!--#endregion Bullet Navigator Skin End -->
+		            <!--#region Arrow Navigator Skin Begin -->
+		            <!-- Help: https://www.jssor.com/development/slider-with-arrow-navigator.html -->
+		            <style>
+		                .jssora051 {display:block;position:absolute;cursor:pointer;}
+		                .jssora051 .a {fill:none;stroke:#fff;stroke-width:360;stroke-miterlimit:10;}
+		                .jssora051:hover {opacity:.8;}
+		                .jssora051.jssora051dn {opacity:.5;}
+		                .jssora051.jssora051ds {opacity:.3;pointer-events:none;}
+		            </style>
+		            <div data-u="arrowleft" class="jssora051" style="width:55px;height:55px;top:0px;left:25px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
+		                <svg viewBox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+		                    <polyline class="a" points="11040,1920 4960,8000 11040,14080 "></polyline>
+		                </svg>
+		            </div>
+		            <div data-u="arrowright" class="jssora051" style="width:55px;height:55px;top:0px;right:25px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
+		                <svg viewBox="0 0 16000 16000" style="position:absolute;top:0;left:0;width:100%;height:100%;">
+		                    <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
+		                </svg>
+		            </div>
+		            <!--#endregion Arrow Navigator Skin End -->
+		        </div>
+		        <!-- Trigger -->
+		        <script>
+		            jssor_slider1_init();
+		        </script>
+		        <!--#endregion Jssor Slider End -->
+		    </div>	
+		</div class="clr"><div>
+		</div>
+	</div>
+<div id="wrapper_slide">
+	<div class="container">
+		<div class="menu">
+			<div class="up">
+					<ul>
+						<li>
+							<a href="login.html">
+								<img src="images/1.png">
+								Chợ Tốt Ưu Đãi
+							</a>
+						</li>
+						<li>
+							<a href="login.html">
+								<img src="images/2.png">
+								Nạp Đồng Tốt
+							</a>
+						</li>
+						<li>
+							<a href="login.html">
+								<img src="images/3.png">
+								Tin rao đã lữu
+							</a>
+						</li>
+						<li>
+							<a href="login.html">
+								<img src="images/4.png">
+								Vòng quay may mắn
+							</a>
+						</li>
+						<li>
+							<a href="login.html">
+								<img src="images/5.png">
+								Tìm kiếm đã lưu
+							</a>
+						</li>
+					</ul>
+				</div>	
+			</div>
+		</div>
+	</div> 
+	<div id="wrapper_content">
+		<div class="container">
+			<div class="content">
+				<div class="item item1">
+					<img  src="images/item1.1.jpg">
+				</div>
+				<div class="item item2">
+					<img src="images/item1.2.jpg">
+				</div>
+				<div class="item">
+					<img src="images/item1.3.jpg">
+				</div>
+				<div class="item">
+					<img src="images/item1.4.jpg">
+				</div>
+					<div class="item">
+					<img src="images/item1.5.jpg">
+				</div>
+				<div class="item">
+					<img src="images/item1.6.jpg">
+				</div>
+				<div class="item">
+					<img src="images/item1.7.jpg">
+				</div>
+				<div class="item">
+					<img src="images/item1.8.jpg">
+				</div>
+					<div class="item">
+					<img src="images/item1.9.jpg">
+				</div>
+				<div class="item">
+					<img src="images/item1.10.jpg">
+				</div>
+				<div class="item">
+					<img src="images/item1.11.jpg">
+				</div>
+				<div class="item">
+					<img src="images/item1.12.jpg">
+				</div>
+					<div class="item">
+					<img src="images/item1.13.jpg">
+				</div>
+				<div class="item">
+					<img src="images/item1.14.jpg">
+				</div>
+				<div class="item">
+					<img src="images/item1.15.jpg">
+				</div>
+				<div class="item">
+					<img src="images/item1.16.jpg">
+				</div>
+				</div class="clr"><div>
+				</div>
+	<div id="wrapper_content">
+		<div class="content2">
+					<p>Chợ Tốt chính thức gia nhập thị trường Việt Nam vào đầu năm 2012, với mục đích tạo ra cho bạn một kênh rao vặt trung gian, kết nối người mua với người bán lại với nhau bằng những giao dịch cực kỳ đơn giản, tiện lợi, nhanh chóng, an toàn, mang đến hiệu quả bất ngờ.<br/>
+
+					Đến nay, Chợ Tốt tự hào là Website rao vặt được ưa chuộng hàng đầu Việt Nam. Hàng ngàn món hời từ Bất động sản, Nhà cửa, Xe cộ, Đồ điện tử, Thú cưng, Vật dụng cá nhân... đến tìm việc làm, thông tin tuyển dụng, các dịch vụ - du lịch được đăng tin, rao bán trên Chợ Tốt.<br/>
+
+					Với Chợ Tốt, bạn có thể dễ dàng mua bán, trao đổi bất cứ một loại mặt hàng nào, dù đó là đồ cũ hay đồ mới với nhiều lĩnh vực:<br/>
+
+					Bất động sản: Cho thuê, Mua bán nhà đất, căn hộ chung cư, văn phòng mặt bằng kinh doanh, phòng trọ đa dạng về diện tích, vị trí<br/>
+
+					Phương tiện đi lại: xe ô tô, xe máy có độ bền cao, giá cả hợp lý.<br/>
+
+					Đồ dùng cá nhân: quần áo, giày dép, túi xách, đồng hồ... đa phong cách, hợp thời trang.<br/>
+
+					Đồ điện tử: điện thoại di động, máy tính bảng, laptop, tivi, loa, amply...; đồ điện gia dụng: máy giặt, tủ lạnh, máy lạnh... với rất nhiều nhãn hiệu, kích thước khác nhau.<br/>
+
+					Vật nuôi, thú cưng đa chủng loại: gà, chó, chim, mèo, cá, hamster giá cực tốt.<br/>
+
+					Tuyển dụng, việc làm với hàng triệu công việc hấp dẫn, phù hợp.<br/>
+
+					Dịch vụ, du lịch: khách sạn, vé máy bay, vé tàu, vé xe, tour du lịch và các voucher du lịch... uy tín, chất lượng.<br/>
+					Đồ ăn, thực phẩm: các món ăn được chế biến thơm ngon, hấp dẫn, thực phẩm tươi sống, an toàn & giá cả hợp lý.<br/>
+
+					Và còn rất nhiều mặt hàng khác nữa đã và đang được rao bán tại Chợ Tốt.<br/>
+
+					Mỗi người trong chúng ta đều có những sản phẩm đã qua sử dụng và không cần dùng tới nữa. Vậy còn chần chừ gì nữa mà không để nó trở nên giá trị hơn với người khác. Rất đơn giản, bạn chỉ cần chụp hình lại, mô tả cụ thể về sản phẩm và sử dụng ứng dụng Đăng tin miễn phí của Chợ Tốt là đã có thể đến gần hơn với người cần nó.<br/>
+
+					Không những thế, Chợ Tốt còn cung cấp cho bạn thông tin về giá cả các mặt hàng để bạn có thể tham khảo. Đồng thời, thông qua Blog kinh nghiệm, Chợ Tốt sẽ tư vấn, chia sẻ cho bạn những thông tin bổ ích, bí quyết, mẹo vặt giúp bạn có những giao dịch mua bán an toàn, đảm bảo. Chợ Tốt cũng sẵn sàng hỗ trợ bạn trong mọi trường hợp cần thiết.<br/>
+
+					Chúc các bạn có những trải nghiệm mua bán tuyệt vời trên Chợ Tốt.
+				</p>
+				</div>
+				<div class="clr"></div>
+		</div>
+	</div>
+	<div id="wrapper_content">
+		<div class="container">
+				<div class="content3">
+					<div class="list1">
+						<ul class="lock">
+									<li class="lock-item">
+										<a href="">Việc làm thêm tại nhà</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Việc làm An Giang</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Việc làm Cà Mau</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Tìm việc làm quận Tân Bình</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >LG V35 Cũ</a>
+									</li>
+								
+									<li class="lock-item">
+										<a href="" >điện thoại iPhone cũ</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Ratel Cell R1020 Cũ</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Hải Sản Tươi Sống</a>
+									</li>
+						</ul>
+					</div>
+					
+					<div class="list2">
+						<ul class="lock">
+									<li class="lock-item">
+										<a href="">iPhone 7 lock cũ</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Việc làm Bắc Ninh</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Tìm việc làm TPHCM</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >iPhone XS Max Lock</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Điện thoại iPhone 8 Plus cũ</a>
+									
+									</li>
+									<li class="lock-item">
+										<a href="" >việc làm online tại nhà</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Trái Cây</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Thịt Nhập Khẩu</a>
+									</li>
+						</ul>
+					</div>
+					<div class="list3">
+						<ul class="lock">
+									<li class="lock-item">
+										<a href="">iPhone XR Lock</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Việc làm Bến Tre</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Việc làm Đà Nẵng</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Tìm việc làm quận 8</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Việc làm Vĩnh Long</a>
+								
+									</li>
+									<li class="lock-item">
+										<a href="" >Điện thoại iPhone 7 Plus cũ</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Samsung Note 10 Cũ</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >giúp việc nhà chính chủ thuê</a>
+									</li>
+						</ul>
+					</div>
+					<div class="list4">
+						<ul class="lock">
+									<li class="lock-item">
+										<a href="">Việc làm Kon Tum</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Việc làm Huế</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Samsung Note 9 cũ</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >nhận hàng gia công về nhà làm</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Oppo F11 Pro cũ</a>
+									</li>
+									
+									<li class="lock-item">
+										<a href="" >Đồ Đặc Sản</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Đồ Uống</a>
+									</li>
+									<li class="lock-item">
+										<a href="" >Công Ty Tuyển dụng</a>
+									</li>
+						</ul>
+					</div>
+					<div class="clr"></div>
+				</div>	
+			</div>
+			</div>
+		</div>
+	<div id="wrapper_footer">
+		<div class="container">
+			<div class="content1">
+					<div class="gird__colomn-2-4">
+						<h3 class="footer_heading">TẢI ỨNG DỤNG CHỢ TỐT</h3>
+						<div class="footer__download">
+							<img src="images/ungdung.png">
+
+						</div>
+					</div>
+					<div class="gird__colomn-2-4">
+						<h3 class="footer_heading">HỖ TRỢ KHÁCH HÀNG</h3>
+						<ul class="footer__list">
+							<li class="footer-item">
+								<a href="" class="footer-item_link">Trung tâp trợ giúp</a>
+							</li>
+							<li class="footer-item">
+								<a href="" class="footer-item_link">An toàn bán hàng</a>
+							</li>
+							<li class="footer-item">
+								<a href="" class="footer-item_link">Quy định cần thiết</a>
+							</li>
+							<li class="footer-item">
+								<a href="" class="footer-item_link">Quy chế riêng tư</a>
+							</li>
+							<li class="footer-item">
+								<a href="" class="footer-item_link">Liên hệ hỗ trợ</a>
+							</li>
+						</ul>
+
+					</div>
+					<div class="gird__colomn-2-4">
+						<h3 class="footer_heading">VỀ CHỢ TỐT</h3>
+						<ul class="footer__list">
+							<li class="footer-item">
+								<a href="" class="footer-item_link">Giới thiệu</a>
+							</li>
+							<li class="footer-item">
+								<a href="" class="footer-item_link">Tuyển dụng</a>
+							</li>
+							<li class="footer-item">
+								<a href="" class="footer-item_link">Truyền thông</a>
+							</li>
+							<li class="footer-item">
+								<a href="" class="footer-item_link">Blog</a>
+							</li>
+						</ul>
+					</div>
+					<div class="gird__colomn-2-4">
+						<h3 class="footer_heading">LIÊN KẾT</h3>
+						<ul class="footer__list">
+							<li class="footer-item">
+								<a href="https://www.facebook.com/chotot.vn" class="footer-item_link">
+									<i class="footer-item_icon fab fa-facebook-f"></i>
+								Facebook</a>
+							</li>
+							<li class="footer-item">
+								<a href="https://www.youtube.com/user/ChototVN" class="footer-item_link">
+									<i class="footer-item_icon fab fa-youtube"></i>
+								Youtube</a>
+							</li>
+							<li class="footer-item">
+								<a href="https://plus.google.com/112159203362880782068" class="footer-item_link">
+									<i class="footer-item_icon fab fa-google-plus-g"></i>
+								Google+</a>
+							</li>
+							<li class="footer-item">
+								<a href="http://online.gov.vn/Home/WebDetails/33119" class="footer-item_link">
+									<i class="footer-item_icon fas fa-certificate"></i>
+								Chứng nhận</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+<div id="wrapper_footer">
+		<div class="content4">
+			<p>CÔNG TY TNHH CHỢ TỐT - Địa chỉ: Phòng 1808, Tầng 18, Mê Linh Point Tower, 02 Ngô Đức Kế, Phường Bến Nghé, Quận 1, TP Hồ Chí Minh<br/>
+						Giấy chứng nhận đăng ký doanh nghiệp số 0312120782 do Sở Kế Hoạch và Đầu Tư TPHCM cấp ngày 11/01/2013<br/>
+										Email: trogiup@chotot.vn - Đường dây nóng: (028)38664041
+			</p>
+		</div>
+	</div>
+</div>	
+</body>
+</html>
